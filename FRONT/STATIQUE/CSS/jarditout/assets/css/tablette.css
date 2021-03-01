@@ -1,0 +1,20 @@
+@media screen and (max-width: 768px)
+{
+    .col-right {
+        display: none;
+    }
+    .nav-items li {
+        display: block;
+    }
+    body {
+        font-size: 0.8rem;
+    }
+    .col-left {
+        margin: 0px 20px 0px 20px;
+    }
+    .table {
+        margin: 0px 20px 0px 20px;
+    }
+    
+
+}
