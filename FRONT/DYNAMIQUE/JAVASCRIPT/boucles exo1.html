@@ -1,0 +1,31 @@
+<html>
+<head>
+</head>
+<body>
+<input type="button" id="test" value="test" />
+</body>
+<script type="text/javascript">
+
+var test = document.getElementById("test");
+test.onclick = showAlert;
+
+function showAlert(){
+	var toto = true;
+	var prenom = 0;
+	var n = 1;
+
+	while (toto) 
+	{
+		prenom = prompt("saisissez le prénom n°" + n);
+		resultat = "prénom n°" + n + " : " + prenom
+		if(prenom == null || prenom == ""){
+			break;
+		}
+		console.log(resultat);
+		n++;
+		
+	}
+	
+}
+</script>
+</html>

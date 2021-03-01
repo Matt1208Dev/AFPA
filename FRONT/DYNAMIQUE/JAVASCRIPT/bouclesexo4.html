@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        
+        var number = parseInt(window.prompt("saisir un premier nombre"));
+var multiple = parseInt(window.prompt("saisir son multiple"));
+
+while (isNaN(number)) {
+    number = parseInt(window.prompt("saisir un premier nombre"));
+}
+
+while (isNaN(multiple)) {
+    number = parseInt(window.prompt("saisir son multiple"));
+}
+
+for (i = 1; i <= multiple; i++)
+{
+    result = i * number ;
+    console.log(i + " " + "x" + " " + number + " =" + " " + result);
+}
+    </script>
+</body>
+</html>
