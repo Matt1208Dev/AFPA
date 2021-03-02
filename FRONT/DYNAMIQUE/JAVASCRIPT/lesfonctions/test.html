@@ -7,7 +7,9 @@
   <body>
     <h1> fonctions | Javascript</h1>
     <hr>        
-    <div id="div1"></div>
+    <div id="picture">
+      <img src="" alt="">
+    </div>
     <script>
 
 
@@ -31,15 +33,15 @@
         }
         calcProd();
 
-    var img = "lesfonctions/papillon.jpg" ;
+    var img = 'papillon.jpg' ;
     function afficheImg(img)
         {
-      var img = document.getElementById("div1");
+      var div = document.getElementById("picture");
       var picture = document.createElement("img");
-      img.src = img ;
-      var src = document.getElementById("div1)");
-      src.appendChild(img);
+      picture.src = img ;
+      div.appendChild(picture);
         }
+
       affichImg(img);
     
 
