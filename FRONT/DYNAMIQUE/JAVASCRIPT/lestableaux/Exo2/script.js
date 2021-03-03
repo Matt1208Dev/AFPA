@@ -1,20 +1,27 @@
 
 // fonction getInteger
 
-function getInteger(content)
-{
-    content = parseInt(window.prompt("saisir un nombre :")) ;
-    while (isNaN(content))
-    {
-        content = parseInt(window.prompt("saisir un nombre :")) ;
-        
-    }
-    //alert("votre chiffre : " + content);
-    return content
-}
-//getInteger() ;
+var  votreTableau;
+var somme = 0;
+var tableLength;
 
-// fonction initTab
+saisieTab();
+afficheTab();
+rechercheTab();
+infoTab();
+
+function infoTab()     
+{         
+    max = Math.max([0], [i]);         
+    for (i = 0; i < tableLength; i++)      
+    {         
+        somme = somme + votreTableau[i];     
+    }   
+    alert("la somme "+ somme); 
+    var moyenne = 0;
+    moyenne = somme / tableLength;
+    alert("la moyenne est " + moyenne); 
+}
 
 function initTab(tableau)
 {
@@ -23,9 +30,6 @@ function initTab(tableau)
     tableau.splice(0, tableLength);
     return tableau
 }
-// initTab();
-
-// fonction saisieTab
 
 function saisieTab(content2)
 {
@@ -38,46 +42,77 @@ function saisieTab(content2)
     }
     return content2 
 }
-saisieTab();
-console.log(votreTableau) ;
 
-// fonction afficheTab
+function rechercheTab()
+{
+    var index = parseInt(window.prompt("saisissez l'index souhaité :"));
+    var search = votreTableau[index];
+    //alert(votreTableau.find(search));
+    alert("la valeur recherchée est "+ search) ;
+}
+
+function getInteger(content)
+{
+    content = parseInt(window.prompt("saisir un nombre :")) ;
+    while (isNaN(content))
+    {
+        content = parseInt(window.prompt("saisir un nombre :")) ;
+        
+    }
+    //alert("votre chiffre : " + content);
+    return content
+}
 
 function afficheTab()
 {
     
     alert("votre tableau : " + votreTableau) ;
 }
-afficheTab();
+
+//getInteger() ;
+
+// fonction initTab
+
+
+
+
+// initTab();
+
+// fonction saisieTab
+
+
+
+// fonction afficheTab
+
 
 // fonction rechercheTab
 
-function rechercheTab()
-{
-    var search = getInteger() ;
-    console.log(search) ;
-    console.log(votreTableau);
-    //alert(votreTableau.find(search));
-    alert(votreTableau[search]) ;
-}
-rechercheTab();
 
 // fonction infoTab
 
-
-    function infoTabMax()
+/*
+    function infoTabMax(votreTableau, tableLength, somme)
     {
         var max=0;
-    for (i=0;i<votreTableau.length;i++)
+        var somme = 0;
+    for (i = 0 ; i < tableLength ; i++)
     {
-         if(votreTableau[i]>max) 
+         if(votreTableau[i] >= max) 
         {
-             max=votreTableau[i];
+             max = votreTableau[i];
+             somme = somme + votreTableau[i];
+             console.log(max);
         }
-    return max;
+        
+        var moyenne = 0;
+        moyenne = somme / tableLength;
+        
     }
-    max=infoTabMax(votreTableau);
-    console.log(max);
+        console.log("valeur la plus haute : " + max);
+        console.log("Moyenne : " + moyenne);
     }
 
     infoTabMax() ;
+*/
+    
+
