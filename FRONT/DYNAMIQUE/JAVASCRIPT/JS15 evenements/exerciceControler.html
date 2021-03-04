@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+
+    <!-- CHAMP DE TEXTE ET BOUTON CONTROLE -->
+
+    <label>Saisissez un texte puis pressez le bouton "Contrôle"</label><br><br>
+    <input type="text" id="text1">
+    <input type="submit" id="button1" value="Contôle">
+
+
+    <script>
+
+// DECLARATION DES VARIABLES
+
+var element = document.getElementById("button1");
+var text1;
+
+// OUVERTURE BOITE DIALOGUE APRES SAISIE VALEUR DANS CHAMP DE TEXTE ET CLIQUE SUR BOUTON CONTROLE
+element.addEventListener("click", function() 
+{
+    text1 = document.getElementById("text1").value; // RECUPERATION VALEUR DU CHAMP 
+    alert("Vous avez saisi : " + text1); // AFFICHAGE DANS BOITE DE DIALOGUE DE LA VALEUR RECUPEREE
+}
+);
+
+</script>
+  </body>
+</html>
