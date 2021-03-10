@@ -22,9 +22,6 @@ var validForm = true;
 //  DEBUT FONCTION DE VERIFICATION DU FORMULAIRE
 document.getElementById("envoi").addEventListener("click", function VeriForm(e) {
 
-    
-    // FIN REECRITURE DU CHOIX SELECT DANS TEXTAREA AFFILIEE        
-
     // VERIF CHAMP SOCIETE
     if (!societe.value) 
     {

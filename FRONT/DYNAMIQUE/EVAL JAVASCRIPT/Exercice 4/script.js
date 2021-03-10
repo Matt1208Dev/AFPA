@@ -3,6 +3,8 @@
 
 var pU;
 var qteCom;
+var pReg = "^[0-9]+[\.,]*[0-9]{0,2}$";
+var qteComReg = "^[0-9]+$";
 var PaP;
 var rem;
 var totRem;
@@ -14,16 +16,24 @@ var shippingCost;
 // DEBUT FONCTION sell
 function sell(pU, qteCom)
 {
-    pU = window.prompt("Saisir le prix de l'article :");
+    pU = window.prompt("Saisir le prix de l'article :"); // DEMANDE DE VALEUR, QUANTITE ET CALCUL DU TOTAL HORS REMISE
+    while (!pU.match(pReg))
+    {
+        pU = window.prompt("Saisir le prix de l'article au format requis (ex 5, 5.00 ou 5,00) :");
+    }
     parseFloat(pU);
     console.log(pU);
     qteCom = window.prompt("Saisir la quantité :");
+    while (!qteCom.match(qteComReg))
+    {
+        qteCom = window.prompt("Saisir la quantité en nombre entier (ex : 1, 50, 100) :");
+    }
     parseInt(qteCom);
     console.log(qteCom);
     tot = pU * qteCom;
-    console.log(tot);
+    console.log(tot);  // FIN  DEMANDE DE VALEUR, QUANTITE ET CALCUL DU TOTAL HORS REMISE
 
-    if (tot > 100 && tot <= 200)
+    if (tot > 100 && tot <= 200)  // CALCUL REMISE
     {
         rem = 0.05;
     }
@@ -36,17 +46,18 @@ function sell(pU, qteCom)
         rem = 0;
         alert("Le montant total de la commande ne donne pas lieu à une remise supplémentaire")
     }
+     // FIN CALCUL REMISE
 
-    totWithoutShippingCost = tot - (tot * rem);
+    totWithoutShippingCost = tot - (tot * rem); // CALCUL TOTAL AVEC REMISE
 
     if (rem === 0)
     {
         totWithoutShippingCost = tot;   
     }
 
-        console.log(totWithoutShippingCost);
+        console.log(totWithoutShippingCost);  // FIN CALCUL TOTAL AVEC REMISE
     
-    if (totWithoutShippingCost > 500)
+    if (totWithoutShippingCost > 500) // CALCUL FRAIS DE TRANSPORT
     {
         shippingCost = 0
         alert("Le montant de votre commande vous fait bénéficier de la livraison gratuite !")
@@ -64,11 +75,12 @@ function sell(pU, qteCom)
             shippingCost = Math.round(shippingCost * 100) / 100;
         }
     }
+        // FIN CALCUL FRAIS DE TRANSPORT
 
-    totWithShippingCost = totWithoutShippingCost + shippingCost;
+    totWithShippingCost = totWithoutShippingCost + shippingCost; // CALCUL DU TOTAL A PAYE + ECRITURE DES RESULTATS A L ECRAN   
     totWithShippingCost = Math.round(totWithShippingCost * 100) / 100
-    document.write("Montant de votre article : " + pU + "€<br>" + "Quantité commandée : " + qteCom + " PC<br>" + "Remise supplémentaire: " + rem * 100 + "%<br>" + " Frais de transport : " + shippingCost + "€<br>" + "Total à payer : " + totWithShippingCost + "€")
-    
+    document.write("Montant de votre article : " + pU + " €<br>" + "Quantité commandée : " + qteCom + " PC<br>" + "Remise supplémentaire: " + rem * 100 + " %<br>" +"Total après remise : " + totWithoutShippingCost + " €<br>" + " Frais de transport : " + shippingCost + " €<br>" + "Total à payer : " + totWithShippingCost + " €")
+        // FIN CALCUL DU TOTAL A PAYE + ECRITURE DES RESULTATS A L ECRAN
 
 }
 
@@ -76,7 +88,7 @@ function sell(pU, qteCom)
 
 sell();
 
+// FIN SCRIPT
 
 
 
-//   COMMENTAIRES A METTRE ET REVERIFIER TOUS LES TESTS ET FAIRE VERIFICATIONS DE SAISIES
