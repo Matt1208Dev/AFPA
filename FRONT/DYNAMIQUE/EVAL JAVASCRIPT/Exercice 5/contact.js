@@ -40,7 +40,11 @@ document.getElementById("form").addEventListener("submit", function checkForm(e)
         error = yourNameError;
         document.getElementById("your-name-error").innerHTML = yourNameError; // AFFICHAGE DU MESSAGE D ERREUR
     }
-    // VERIF CHAMP NAME
+    else
+    {
+        document.getElementById("your-name-error").innerHTML = "";
+    }
+    // FIN VERIF CHAMP NAME
 
     // VERIF CHAMP SURNAME
     if (!surname.value.match(nameReg)) // CONTROLE DE SAISIE
@@ -49,7 +53,11 @@ document.getElementById("form").addEventListener("submit", function checkForm(e)
         error = surnameError;
         document.getElementById("surname-error").innerHTML = surnameError; // AFFICHAGE DU MESSAGE D ERREUR
     }
-    // VERIF CHAMP SURNAME
+    else
+    {
+        document.getElementById("surname-error").innerHTML = "";
+    }
+    // FIN VERIF CHAMP SURNAME
 
     //VERIF CHAMP SEX
     if ((form.sexf.checked == false) && (form.sexm.checked == false)) // CONTROLE DE SAISIE
@@ -57,6 +65,10 @@ document.getElementById("form").addEventListener("submit", function checkForm(e)
         sexError = "*Merci de cocher une case !"; // CONTENU DU MESSAGE D ERREUR
         error = sexError;
         document.getElementById("sex-error").innerHTML = sexError; // AFFICHAGE DU MESSAGE D ERREUR
+    }
+    else
+    {
+        document.getElementById("sex-error").innerHTML = "";
     }
     // FIN VERIF CHAMP SEX
 
@@ -75,6 +87,10 @@ document.getElementById("form").addEventListener("submit", function checkForm(e)
         error = dateOfBirthError;
         document.getElementById("date-of-birth-error").innerHTML = dateOfBirthError; // AFFICHAGE DU MESSAGE D ERREUR
     }
+    else
+    {
+        document.getElementById("date-of-birth-error").innerHTML = "";
+    }
     // FIN VERIF UTILISATEUR MAJEUR
 
     // VERIF CHAMP POSTALCODE
@@ -83,6 +99,10 @@ document.getElementById("form").addEventListener("submit", function checkForm(e)
         postalcodeError = "*Veuillez saisir un code postal à 5 chiffres"; // CONTENU DU MESSAGE D ERREUR
         error = postalcodeError;
         document.getElementById("postalcode-error").innerHTML = postalcodeError; // AFFICHAGE DU MESSAGE D ERREUR
+    }
+    else
+    {
+        document.getElementById("postalcode-error").innerHTML = "";
     }
     // FIN VERIF CHAMP POSTALCODE
     
@@ -93,6 +113,10 @@ document.getElementById("form").addEventListener("submit", function checkForm(e)
         error = addressError;
         document.getElementById("address-error").innerHTML = addressError; // AFFICHAGE DU MESSAGE D ERREUR
     }
+    else
+    {
+        document.getElementById("address-error").innerHTML = "";
+    }
     // FIN VERIF CHAMP ADDRESS
 
     // VERIF CHAMP TOWN
@@ -101,6 +125,10 @@ document.getElementById("form").addEventListener("submit", function checkForm(e)
         townError = "*Veuillez saisir la ville"; // CONTENU DU MESSAGE D ERREUR
         error = townError;
         document.getElementById("town-error").innerHTML = townError; // AFFICHAGE DU MESSAGE D ERREUR
+    }
+    else
+    {
+        document.getElementById("town-error").innerHTML = "";
     }
     // FIN VERIF CHAMP TOWN
 
@@ -111,6 +139,10 @@ document.getElementById("form").addEventListener("submit", function checkForm(e)
         error = emailError;
         document.getElementById("email-error").innerHTML = emailError; // AFFICHAGE DU MESSAGE D ERREUR
     }
+    else
+    {
+        document.getElementById("email-error").innerHTML = "";
+    }
     // FIN VERIF CHAMP EMAIL
 
     // VERIF CHAMP SELECT 
@@ -119,6 +151,10 @@ document.getElementById("form").addEventListener("submit", function checkForm(e)
         selectError = "*La sélection d'un sujet est requis"; // CONTENU DU MESSAGE D ERREUR
         error = selectError;
         document.getElementById("select-error").innerHTML = selectError; // AFFICHAGE DU MESSAGE D ERREUR
+    }
+    else
+    {
+        document.getElementById("select-error").innerHTML = "";
     }
     // FIN VERIF CHAMP SELECT
 
@@ -129,6 +165,10 @@ document.getElementById("form").addEventListener("submit", function checkForm(e)
         error = questionError;
         document.getElementById("question-error").innerHTML = questionError; // AFFICHAGE DU MESSAGE D ERREUR
     }
+    else
+    {
+        document.getElementById("question-error").innerHTML = "";
+    }
     // FIN VERIF CHAMP QUESTION
 
     // VERIF CHAMP ACCEPT
@@ -138,6 +178,10 @@ document.getElementById("form").addEventListener("submit", function checkForm(e)
         acceptError = "*Vous devez accepter le traitement informatique pour envoyer ce formulaire"; // CONTENU DU MESSAGE D ERREUR
         error = acceptError;
         document.getElementById("accept-error").innerHTML = acceptError; // AFFICHAGE DU MESSAGE D ERREUR
+    }
+    else
+    {
+        document.getElementById("accept-error").innerHTML = "";
     }
     // FIN VERIF CHAMP ACCEPT
     
