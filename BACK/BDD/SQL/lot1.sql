@@ -25,4 +25,10 @@ WHERE cha_capacite > 1
 
 SELECT cli_nom, cli_ville
 FROM `client`
-WHERE cli_ville NOT IN (Londre)
+WHERE cli_ville != "Londre"
+
+-- AFFICHER LA LISTE DES HOTEL SUR BRETOU POSSEDANT CATEGORIE > 3 --
+
+SELECT hot_nom, hot_ville, hot_categorie
+FROM `hotel`
+WHERE hot_ville = "bretou" AND hot_categorie > 3
