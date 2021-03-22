@@ -76,5 +76,104 @@ WHERE obscom LIKE '%urgent%'
 
 -- BESOIN D AFFICHAGE 12 --
 
+SELECT numfou, COUNT(*) AS "Nb"
+FROM `vente`
+GROUP BY numfou
+ORDER BY COUNT(*)
+
+SELECT numfou
+FROM `vente`
+WHERE qte1>0 OR qte2>0 OR qte3 >0
+GROUP BY numfou
+
+-- BESOIN D AFFICHAGE 13 --
+
+SELECT numfou, numcom, datcom
+FROM `entcom`
+WHERE numfou = (SELECT numfou
+    FROM `entcom`
+    WHERE numcom = "70210"
+    GROUP BY numfou)
 
 
+-- BESOIN D AFFICHAGE 14 --
+
+SELECT libart, prix1 
+FROM `produit` 
+JOIN `vente` 
+ON `produit`.codart = `vente`.codart 
+WHERE prix1 < (SELECT min(prix1)
+               FROM `vente`
+               JOIN `produit`
+               ON `vente`.codart = `produit`.codart
+               WHERE libart LIKE "R%")
+ORDER BY prix1
+
+-- BESOIN D AFFICHAGE 15 --
+
+SELECT numfou, libart, stkphy, stkale 
+FROM `produit` 
+JOIN `vente` 
+ON `produit`.codart = `vente`.codart 
+WHERE stkphy <= 1.5*stkale 
+ORDER BY libart ASC, numfou
+
+-- BESOIN D AFFICHAGE 16 --
+
+SELECT numfou, libart, stkphy, stkale, delliv 
+FROM `produit` 
+JOIN `vente` 
+ON `produit`.codart = `vente`.codart 
+WHERE stkphy <= 1.5*stkale AND delliv <= 30
+ORDER BY numfou ASC, libart
+
+-- BESOIN D AFFICHAGE 17 --
+
+SELECT pstk.numfou, SUM(stkphy) AS "Total stock"
+FROM 	(SELECT numfou, libart, stkphy, stkale, delliv 
+		FROM `produit` 
+		JOIN `vente` 
+		ON `produit`.codart = `vente`.codart 
+		WHERE stkphy <= 1.5*stkale AND delliv <= 30
+		ORDER BY numfou ASC, libart) AS pstk
+GROUP BY numfou
+ORDER BY `Total stock` DESC
+
+-- BESOIN D AFFICHAGE 18 --
+
+SELECT `produit`.codart, libart, qtecde, qteann
+FROM `produit`
+JOIN `ligcom`
+ON `produit`.codart = `ligcom`.codart
+WHERE qtecde > 0.9*qteann
+
+-- BESOIN D AFFICHAGE 19 --
+
+SELECT numfou, SUM(qte1*prix1+qte2*prix2+qte3*prix3) AS ca_global_ht
+FROM `vente`
+GROUP BY numfou, ca_global_ht;
+
+-- BESOIN DE MISE A JOUR 1 --
+
+UPDATE `vente`
+SET prix1 = prix1*1.04, prix2 = prix2*1.02
+WHERE `numfou` = "9180";
+
+-- BESOIN DE MISE A JOUR 2 --
+
+UPDATE `vente`
+SET prix2 = 10
+WHERE prix2 IS NULL;
+
+-- BESOIN DE MISE A JOUR 3 --
+
+UPDATE `entcom`
+JOIN `fournis`
+ON `entcom`.numfou = `fournis`.numfou
+SET obscom = '*****'
+WHERE satisf < 5;
+
+-- BESOIN DE MISE A JOUR 4 --
+
+DELETE FROM `produit`
+WHERE codart = 'I110';
