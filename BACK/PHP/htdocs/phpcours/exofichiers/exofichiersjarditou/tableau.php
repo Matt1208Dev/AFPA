@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Jarditou.com : Tout le jardin</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 d-none d-lg-block">
+                <img class="img-fluid" src="../Exercice 5/src/img/jarditou_logo.jpg" alt="Logo Jarditou" title="Logo Jarditou" width="180">
+            </div>
+            <div class="col-lg-4 d-none d-lg-block">
+                <p class="text-center fs-2" >Tout le jardin</p>
+            </div>
+        </div>
+
+        <div class="row" style="margin: auto">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="index.php">Jarditou.com</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link" href="index.php">Accueil</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="tableau.php">Tableau</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="contact.php">Contact</a>
+                      </li>
+                      
+                    </ul>
+                    <form class="d-flex">
+                      <input class="form-control me-2" type="search" placeholder="Votre promotion" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Rechercher</button>
+                    </form>
+                  </div>
+                </div>
+              </nav>
+
+        </div>
+
+        <div class="row">
+            <img src="../Exercice 5/src/img/promotion.jpg" alt="banniere promotionnelle sur les lames de terrasse" title="banniere promotionnelle sur les lames de terrasse">
+        </div>
+
+        <div class="row" style="margin: auto;" >
+            <div class="col g-0">
+
+                
+        
+                    <div>
+                       
+                        <Table class="table table-bordered">
+                            <thead class="table-active">
+                                <tr>
+                                    <th >Photo</th>
+                                    <th>ID</th>
+                                    <th>Catégorie</th>
+                                    <th>Libellé</th>
+                                    <th>Prix</th>
+                                    <th>Couleur</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-warning">
+                                    <td><img src="src/img/7.jpg" alt="Photo du barbecue Aramis" height="100" width="100"><br><br>
+                                        <form action="valid_img.php" method="post" enctype="multipart/form-data">
+                                        <label for="img-aramis"></label>
+                                        <input type="file" id="img-aramis" name="img-aramis">
+                                        <input type="submit">
+                                        </form>
+                                    </td>
+                                    <td>7</td>
+                                    <td>Barbecues</td>
+                                    <td>Aramis</td>
+                                    <td>110.00€</td>
+                                    <td>Brun</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="src/img/8.jpg" alt="Photo du barbecue Athos" height="100" width="100"></td>
+                                    <td>8</td>
+                                    <td>Barbecues</td>
+                                    <td>Athos</td>
+                                    <td>249.99€</td>
+                                    <td>Noir</td>
+                                </tr>
+                                <tr class="table-warning">
+                                    <td><img src="src/img/11.jpg" alt="Photo du barbecue Clatronic" height="100" width="100"></td>
+                                    <td>11</td>
+                                    <td>Barbecues</td>
+                                    <td>Clatronic</td>
+                                    <td>135.90€</td>
+                                    <td>Chrome</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="src/img/12.jpg" alt="Photo du barbecue Camping" height="100" width="100"></td>
+                                    <td>12</td>
+                                    <td>Barbecues</td>
+                                    <td>Camping</td>
+                                    <td>88.00€</td>
+                                    <td>Noir</td>
+                                </tr>
+                                <tr class="table-warning">
+                                    <td><img src="src/img/13.jpg" alt="Photo du barbecue Green" height="100" width="100"></td>
+                                    <td>13</td>
+                                    <td>Brouette</td>
+                                    <td>Green</td>
+                                    <td>49.00€</td>
+                                    <td>Verte</td>
+                                </tr>
+                    
+                            </tbody>
+                        </Table>
+
+                    </div>
+
+                
+
+        </div>
+
+        <footer class="navbar navbar-expand-lg navbar-dark bg-dark rounded mt-2">
+            <div class="container-fluid" style="padding-left: 12px;">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">mentions légales</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">horaires</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">plan du site</a>
+                  </li>                
+                </ul>
+              </div>
+            </div>
+          </footer>
+
+
+
+    </div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js%22%3E"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+</body>
+</html>
