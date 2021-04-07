@@ -34,7 +34,10 @@ catch (Exception $e) {
         <div class="col-8 ">
             <form action="" method="post">
                 <div class="form-group">
-                
+                    <div class="mt-3">
+                        <label class="form-label" for="pro_photo">Photo :</label>
+                        <input class="form-control mt-2" type="text" name="pro_photo" value="<?php echo $row->pro_photo ?>" disabled>                     
+                    </div>
                     <div class="mt-3">
                         <label class="form-label" for="pro_ref">Référence :</label>
                         <input class="form-control mt-2" type="text" name="pro_ref" value="<?php echo $row->pro_ref ?>" disabled>                     
@@ -81,9 +84,10 @@ catch (Exception $e) {
                         <input class="form-control mt-2" type="text" name="pro_d_modif" value="<?php if ($row->pro_d_modif == NULL){echo '';} ?>" disabled>                     
                     </div>
 
-                    <a class="btn btn-secondary btn-lg px-3 me-3 mt-4" href="#" role="button">Retour</a>
-                    <a class="btn btn-warning btn-lg me-3 mt-4" href="#" role="button">Modifier</a>
-                    <a class="btn btn-danger btn-lg px-1 me-3 mt-4" href="#" role="button">Supprimer</a>
+                    
+                    <a class="btn btn-secondary btn-lg px-3 me-3 mt-4" href="index.php" role="button" >Retour</a>
+                    <a class="btn btn-warning btn-lg me-3 mt-4"  href="update_form.php?pro_id=<?php echo $row->pro_id ?>" role=button>Modifier</a>
+                    <a class="btn btn-danger btn-lg px-1 me-3 mt-4" href="delete_form.php?pro_id=<?php echo $row->pro_id ?>" role="button">Supprimer</a>
                     <br><br>
                 
                 </div>           
@@ -91,6 +95,5 @@ catch (Exception $e) {
         </div>    
     </div>
 </div>
-
 
 <?php include 'footer.php' ?> 

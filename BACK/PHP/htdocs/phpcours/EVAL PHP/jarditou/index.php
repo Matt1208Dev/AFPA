@@ -1,44 +1,87 @@
-<?php include 'header.php' ?> 
 
-        <div class="row" style="margin:auto">
-            <div class="col-lg-8">
+<?php include 'header.php' ?>
+<br>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10 overflow-auto">
+            <table class="table table-bordered .table-responsive{-sm|-md|-lg|-xl|-xxl} text-center">
+                <thead>
+                    <tr class="table-secondary" style="border-bottom: 1px solid black;">
+                        <th>Photos</th>
+                        <th>ID</th>
+                        <th>Référence</th>
+                        <th>Libellé</th>
+                        <th>Prix</th>
+                        <th>Stock</th>
+                        <th>Couleur</th>
+                        <th>Ajout</th>
+                        <th>Modif</th>
+                        <th>Bloqué</th>
+                    </tr>
+                </thead>
 
-                <section>
-        
-                    <div class="mt-3 ps-3">
-                       
-                        <div>
-                            <h1 class="fs-2">L'entreprise</h1>
-            
-                            <p>Notre entreprise familiale met tout son savoir-faire à  votre disposition dans le domaine du jardin et du paysagisme. <br><br>
-                            Créée il y a 70 ans, notre entreprise vend fleurs, arbustes, matériel à  main et motorisés. <br><br>
-                            Implantés à  Amiens, nous intervenons dans tout le département de la Somme : Albert, Doullens, Péronne, Abbeville, Corbie.</p>
-                            
-                        </div>
-            
-                        <div>
-                            <h2>Qualité</h2>
-            
-                            <p>Nous mettons à  votre disposition un service personnalisé, avec 1 seul interlocuteur durant tout votre projet. <br><br>
-                            Vous serez séduit par notre expertise, nos compétences et notre sérieux.</p>
-            
-                        </div>
-            
-                        <div>
-                            <h2>Devis gratuit</h2>
-            
-                            <p>Vous pouvez bien sûr nous contacter pour de plus amples informations ou pour une demande d'intervention. Vous souhaitez un devis ? Nous vous le réalisons gratuitement. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus impedit pariatur aperiam aliquid quod maiores minus facilis, incidunt perferendis voluptas, fuga at dolore laboriosam minima cum fugit ex optio porro.</p>
-            
-                        </div>
-                    </div>
-                     
-                </section>
-            </div>
-            <div class="col-lg-4 bg-warning">
-                <h2 class="text-center mt-3">[Colonne de droite]</h2>
-            </div>
+                <tbody>
+                
 
+        <?php
+            require "connexion_bdd.php"; // Connexion base
+            $requete = "SELECT * FROM `produits`";
+            $result = $db->query($requete);
+            $nbLigne = $result->rowCount(); // Nombre de lignes retournées par la requête
+            if ($nbLigne > 1) 
+            {             
+                while ($row = $result->fetch(PDO::FETCH_OBJ)) // Tant qu'il y a des lignes à afficher :
+                { ?>
+                    <tr style="border: 1px solid black;">
+                        <td class="bg-warning">
+                            <?= $row->pro_photo; ?>
+                        </td>
+                        <td class="table-active">
+                            <?= $row->pro_id; ?>
+                        </td>
+                        <td class="bg-warning">
+                            <?= $row->pro_ref; ?>
+                        </td>
+                        <td class="table-active">
+                            <a class="text-uppercase text-danger" href="details.php?pro_id=<?php echo $row->pro_id ?>" title="Modifier"><strong><u><?= $row->pro_libelle; ?></u></strong></a>
+                        </td>
+                        <td class="table-active">
+                            <?= $row->pro_prix; ?>
+                        </td>
+                        <td class="table-active">
+                            <?= $row->pro_stock; ?>
+                        </td>
+                        <td class="table-active">
+                            <?= $row->pro_couleur; ?>
+                        </td>
+                        <td class="table-active">
+                            <?= $row->pro_d_ajout; ?>
+                        </td>
+                        <td class="table-active">
+                            <?= $row->pro_d_modif; ?>
+                        </td>
+                        <td class="table-active">
+                        <span class="badge badge-pill badge-danger"><?php if($row->pro_bloque == 1){echo 'BLOQUE';} ?></span>
+                        </td>
+
+                    </tr>
+                    
+                <?php 
+                }
+
+            $result->closeCursor(); 
+
+            }  
+        ?>
+
+                </tbody>
+            </table>
+
+           
         </div>
+        <a href="add_form.php" role="button" class="btn btn-secondary btn-lg btn-block">Ajouter un nouvel article</a>
     </div>
+    
+</div>
 
-  <?php include 'footer.php' ?> 
+<?php include 'footer.php' ?>

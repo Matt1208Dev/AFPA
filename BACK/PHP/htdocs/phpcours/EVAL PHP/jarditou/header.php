@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
     <title>Jarditou.com : Tout le jardin</title>
 </head>
 <body>
@@ -21,17 +20,17 @@
         </div>
 
         <div class="row" style="margin:auto">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
                  
                   <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     
-                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                         <li class="nav-item h2">
-                          <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
+                          <a class="nav-link active" aria-current="page" href="accueil.php">Accueil</a>
                         </li>
                         <li class="nav-item h2">
-                          <a class="nav-link" href="tableau.php">Tableau</a>
+                          <a class="nav-link" href="index.php">Tableau</a>
                         </li>
                         <li class="nav-item h2">
                           <a class="nav-link" href="#" disabled>Contact</a>
