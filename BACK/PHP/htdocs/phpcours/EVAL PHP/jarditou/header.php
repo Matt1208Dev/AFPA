@@ -19,13 +19,13 @@
             </div>
         </div>
 
-        <div class="row" style="margin:auto">
-                <div class="container">
+        <div class="row bg-light" style="margin:auto">
+                <div class="nav justify-content-center ">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                  
                   <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     
-                      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item h2">
                           <a class="nav-link active" aria-current="page" href="accueil.php">Accueil</a>
                         </li>

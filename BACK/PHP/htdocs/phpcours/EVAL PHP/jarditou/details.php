@@ -2,9 +2,10 @@
 
 
 
-<?php
+ <?php 
 
 try {
+
     // Récupération de l'identifiant concerné, passé en GET
     $pro_id=$_GET['pro_id'];
     include 'connexion_bdd.php';
@@ -21,22 +22,24 @@ $result->closeCursor();
 
 catch (Exception $e) {
 
-    echo "La connexion à la base de données a échoué ! <br>";
-    echo "Merci de bien vérifier vos paramètres de connexion ...<br>";
     echo "Erreur : " . $e->getMessage() . "<br>";
     echo "N° : " . $e->getCode();
     die("Fin du script");
 }
+
+
+
 ?>
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-8 ">
+        <div class="col-md-8 ">
             <form action="" method="post">
-                <div class="form-group">
-                    <div class="mt-3">
-                        <label class="form-label" for="pro_photo">Photo :</label>
-                        <input class="form-control mt-2" type="text" name="pro_photo" value="<?php echo $row->pro_photo ?>" disabled>                     
+                <div class="form-group ">
+                    <div class="mt-3 d-flex justify-content-center">
+                        <!-- <label class="form-label" for="pro_photo">Photo :</label>
+                        <input class="form-control mt-2" type="text" name="pro_photo" value="<?php //echo $row->pro_photo ?>" disabled> -->                    
+                        <img src="<?= $row->pro_photo; ?>" alt="" srcset="" width= 300>
                     </div>
                     <div class="mt-3">
                         <label class="form-label" for="pro_ref">Référence :</label>
@@ -72,7 +75,7 @@ catch (Exception $e) {
                         <input class="form-check-input" type="radio" name="pro_bloque" id="yes" value="<?php echo $row->pro_bloque ?>" <?php if ($row->pro_bloque == 1) {echo 'checked=checked';}?> disabled >Oui
                         </div>
                         <div class="form-check form-check-inline"> 
-                        <input class="form-check-input" type="radio" name="pro_bloque" id="no" value="<?php echo $row->pro_bloque ?>" <?php if ($row->pro_bloque == NULL) {echo 'checked=checked';} ?> disabled >Non
+                        <input class="form-check-input" type="radio" name="pro_bloque" id="no" value="<?php echo $row->pro_bloque ?>" <?php if (($row->pro_bloque == NULL)||($row->pro_bloque == 0)) {echo 'checked=checked';} ?> disabled >Non
                         </div>
                     </div>
                     <div class="mt-3">
@@ -81,7 +84,7 @@ catch (Exception $e) {
                     </div>
                     <div class="mt-3">
                         <label class="form-label" for="pro_d_modif">Date de modification :</label>
-                        <input class="form-control mt-2" type="text" name="pro_d_modif" value="<?php if ($row->pro_d_modif == NULL){echo '';} ?>" disabled>                     
+                        <input class="form-control mt-2" type="text" name="pro_d_modif" value="<?php if ($row->pro_d_modif == NULL){echo '';}else{echo $row->pro_d_modif;} ?>" disabled>                     
                     </div>
 
                     

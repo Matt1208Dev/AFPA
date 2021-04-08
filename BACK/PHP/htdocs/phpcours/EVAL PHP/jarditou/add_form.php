@@ -6,12 +6,12 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-8 ">
+        <div class="col-md-8 ">
             <form action="add_script.php" method="POST">
                 <div class="form-group">
                     <div class="mt-3">
                         <label class="form-label" for="pro_photo">Photo :</label>
-                        <input class="form-control mt-2" type="text" name="pro_photo" value="<?php if(isset($pro_photo)){echo $pro_photo;}?>" >
+                        <input class="form-control mt-2" type="text" name="pro_photo" value="<?php if(isset($pro_photo)){echo $pro_photo;}?>" placeholder="L'ajout de photo ne sera possible qu'après création de la fiche produit" disabled>
                     </div>
                     <p class="text text-danger fw-bold" ><?php if(isset($proPhotoError)){echo $proPhotoError;}?></p>
                     <div class="mt-3">
@@ -58,7 +58,7 @@
                     <p class="text text-danger fw-bold" ><?php if(isset($proDescriptionError)){echo $proDescriptionError;}?></p>
                     <div class="mt-3">
                         <label class="form-label" for="pro_prix">Prix :</label>
-                        <input class="form-control mt-2" type="text" name="pro_prix" value="<?php if(isset($pro_prix)){echo $pro_prix;}?>" >                     
+                        <input class="form-control mt-2" type="text" name="pro_prix" placeholder="ex: 14.99" value="<?php if(isset($pro_prix)){echo $pro_prix;}?>" >                     
                     </div>
                     <p class="text text-danger fw-bold" ><?php if(isset($proPrixError)){echo $proPrixError;}?></p>
                     <div class="mt-3">
@@ -74,10 +74,10 @@
                     <div class="mt-3">                            
                         <label class="mb-2" for="pro_bloque" class="form-check-label"> Produit bloqué :</label><br>
                         <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="pro_bloque" id="yes" value="1" <?php if(isset($pro_bloque) AND ($row->pro_bloque == 1)){echo "checked=checked";}?> >Oui
+                        <input class="form-check-input" type="radio" name="pro_bloque" id="yes" value="1" <?php if(isset($pro_bloque) AND ($pro_bloque == 1)){echo "checked=checked";}?> >Oui
                         </div>
                         <div class="form-check form-check-inline"> 
-                        <input class="form-check-input" type="radio" name="pro_bloque" id="no" value="NULL" <?php if(isset($pro_bloque)($row->pro_bloque == NULL)){echo "checked=checked";}?>>Non
+                        <input class="form-check-input" type="radio" name="pro_bloque" id="no" value="NULL" <?php if(isset($pro_bloque) AND ($pro_bloque == NULL)){echo "checked=checked";}?>>Non
                         </div>
                     </div>
                     <p class="text text-danger fw-bold" ><?php if(isset($proBloqueError)){echo $proBloqueError;}?></p>

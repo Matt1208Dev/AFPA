@@ -29,7 +29,7 @@ $requete->bindValue(':pro_description', $pro_description, PDO::PARAM_STR);
 $requete->bindValue(':pro_prix', $pro_prix, PDO::PARAM_STR);
 $requete->bindValue(':pro_stock', $pro_stock, PDO::PARAM_INT);
 $requete->bindValue(':pro_couleur', $pro_couleur, PDO::PARAM_STR);
-$requete->bindValue(':pro_photo', $pro_photo, PDO::PARAM_STR);
+$requete->bindValue(':pro_photo', $pro_path, PDO::PARAM_STR);
 $requete->bindValue(':pro_d_ajout', $pro_d_ajout, PDO::PARAM_STR);
 $requete->bindValue(':pro_d_modif', $pro_d_modif, PDO::PARAM_STR);
 $requete->bindValue(':pro_bloque', $pro_bloque, PDO::PARAM_INT);
@@ -43,8 +43,6 @@ $requete->closeCursor();
 // Gestion des erreurs
 catch (Exception $e) {
 
-        echo "La connexion à la base de données a échoué ! <br>";
-        echo "Merci de bien vérifier vos paramètres de connexion ...<br>";
         echo "Erreur : " . $e->getMessage() . "<br>";
         echo "N° : " . $e->getCode();
         die("Fin du script");

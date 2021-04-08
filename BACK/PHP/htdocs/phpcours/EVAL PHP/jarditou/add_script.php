@@ -1,7 +1,6 @@
 <?php
 
 
-
 @$pro_id = htmlspecialchars($_POST['pro_id']);
 @$pro_cat_id = htmlspecialchars($_POST['pro_cat_id']);
 @$pro_ref = htmlspecialchars($_POST['pro_ref']);
@@ -14,15 +13,17 @@
 @$pro_d_ajout = htmlspecialchars($_POST['pro_d_ajout']);
 @$pro_d_modif = htmlspecialchars($_POST['pro_d_modif']);
 @$pro_bloque = htmlspecialchars($_POST['pro_bloque']);
+@$pro_path = "";
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
 
     $counterror = 0;
-    if ((!isset($pro_photo))||(!preg_match('/[a-zA-Zéèàêëäï\\-\\ ]{1,50}/', $pro_photo)))
+    /* if ((!isset($pro_photo))||(!preg_match('/[a-zA-Zéèàêëäï\\-\\ ]{1,50}/', $pro_photo)))
     {
         $proPhotoError = 'Entrez l\'extension de fichier.';
         $counterror++;
-    }
+    } */
     
     if ((!isset($pro_ref))||(!preg_match('/[a-zA-Zéèàêëäï\\-\\ ]{1,50}/', $pro_ref)))
     {
@@ -66,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $counterror++;
     }
 
-    if ((!isset($pro_bloque)))
+    if (((!isset($pro_bloque)))||($pro_bloque == ''))
     {
         $proBloqueError = 'Veuillez cocher un champ.';
         $counterror++;
@@ -76,10 +77,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     {
         require 'functions/InsertProduct.php';
         InsertProduct();
-    }
+    } 
     else
     {
         include 'add_form.php';
+ 
     }
 }
 

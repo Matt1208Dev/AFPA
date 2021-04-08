@@ -17,10 +17,11 @@ function SetProduct()
     
     require "connexion_bdd.php";
 
+
 try {
 // Construction de la requête UPDATE sans injection SQL
 
-$requete = $db->prepare("UPDATE produits SET pro_cat_id=:pro_cat_id, pro_ref=:pro_ref, pro_libelle=:pro_libelle, pro_description=:pro_description, pro_prix=:pro_prix, pro_stock=:pro_stock, pro_couleur=:pro_couleur, pro_photo=:pro_photo, pro_d_ajout=:pro_d_ajout, pro_d_modif=:pro_d_modif, pro_bloque=:pro_bloque WHERE pro_id=:pro_id");
+$requete = $db->prepare("UPDATE produits SET pro_cat_id=:pro_cat_id, pro_ref=:pro_ref, pro_libelle=:pro_libelle, pro_description=:pro_description, pro_prix=:pro_prix, pro_stock=:pro_stock, pro_couleur=:pro_couleur, pro_photo=:pro_photo, /*pro_d_ajout=:pro_d_ajout ,*/ pro_d_modif=:pro_d_modif, pro_bloque=:pro_bloque WHERE pro_id=:pro_id");
 
 $requete->bindValue(':pro_cat_id', $pro_cat_id, PDO::PARAM_INT);
 $requete->bindValue(':pro_ref', $pro_ref, PDO::PARAM_STR);
@@ -30,7 +31,7 @@ $requete->bindValue(':pro_prix', $pro_prix, PDO::PARAM_STR);
 $requete->bindValue(':pro_stock', $pro_stock, PDO::PARAM_INT);
 $requete->bindValue(':pro_couleur', $pro_couleur, PDO::PARAM_STR);
 $requete->bindValue(':pro_photo', $pro_photo, PDO::PARAM_STR);
-$requete->bindValue(':pro_d_ajout', $pro_d_ajout, PDO::PARAM_STR);
+//$requete->bindValue(':pro_d_ajout', $pro_d_ajout, PDO::PARAM_STR);
 $requete->bindValue(':pro_d_modif', $pro_d_modif, PDO::PARAM_STR);
 $requete->bindValue(':pro_bloque', $pro_bloque, PDO::PARAM_INT);
 $requete->bindValue(':pro_id', $pro_id, PDO::PARAM_INT);
@@ -51,7 +52,7 @@ catch (Exception $e) {
 
 // Redirection vers la page index.php
 header("Location: index.php");
-exit;
+exit; 
 
 };
 

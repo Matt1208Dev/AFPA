@@ -3,8 +3,9 @@
 <br>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10 overflow-auto">
-            <table class="table table-bordered .table-responsive{-sm|-md|-lg|-xl|-xxl} text-center">
+        <div class="col-sm-12 col-lg-10 overflow-auto px-0">
+        <div class="table-responsive">
+            <table class="table table-bordered text-center ">
                 <thead>
                     <tr class="table-secondary" style="border-bottom: 1px solid black;">
                         <th>Photos</th>
@@ -34,7 +35,7 @@
                 { ?>
                     <tr style="border: 1px solid black;">
                         <td class="bg-warning">
-                            <?= $row->pro_photo; ?>
+                            <img src="<?= $row->pro_photo; ?>" alt="" srcset="" width= 100>
                         </td>
                         <td class="table-active">
                             <?= $row->pro_id; ?>
@@ -61,7 +62,7 @@
                             <?= $row->pro_d_modif; ?>
                         </td>
                         <td class="table-active">
-                        <span class="badge badge-pill badge-danger"><?php if($row->pro_bloque == 1){echo 'BLOQUE';} ?></span>
+                        <span class="badge rounded-pill bg-danger"><?php if($row->pro_bloque == 1){echo 'BLOQUE';} ?></span>
                         </td>
 
                     </tr>
@@ -77,7 +78,7 @@
                 </tbody>
             </table>
 
-           
+        </div>  
         </div>
         <a href="add_form.php" role="button" class="btn btn-secondary btn-lg btn-block">Ajouter un nouvel article</a>
     </div>

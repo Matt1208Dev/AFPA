@@ -4,7 +4,10 @@
 
 <?php
 
+
 try {
+
+    
     // Récupération de l'identifiant concerné, passé en GET
     $pro_id=$_GET['pro_id'];
     include 'connexion_bdd.php';
@@ -29,12 +32,15 @@ catch (Exception $e) {
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-8 ">
-            <form action="update_script.php" method="post">
+        <div class="col-md-8 ">
+            <form action="update_script.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
+                <input id="prod_id" name="pro_id" type="hidden" value="<?php echo $pro_id; ?>">
                     <div class="mt-3">
-                        <label class="form-label" for="pro_photo">Photo :</label>
-                        <input class="form-control mt-2" type="text" name="pro_photo" value="<?php echo $row->pro_photo ?>" >
+                       <!-- <label class="form-label" for="pro_photo">Photo :</label>
+                        <input class="form-control mt-2" type="text" name="pro_photo" value="<?php //echo $row->pro_photo ?>" > -->
+                        <label class="form-label" for="img-aramis">Ajouter une photo de l'article :</label>
+                        <input class="form-control mt-2" type="file" id="pro_photo" name="pro_photo" value=""><?php if(isset($pro_photo)){echo $pro_photo;}?>
                     </div>
                     <div class="mt-3">
                         <label class="form-label" for="pro_ref">Référence :</label>
@@ -67,10 +73,10 @@ catch (Exception $e) {
                     <div class="mt-3">                            
                         <label class="mb-2" for="pro_bloque" class="form-check-label"> Produit bloqué :</label><br>
                         <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="pro_bloque" id="yes" value="<?php echo $row->pro_bloque ?>" <?php if ($row->pro_bloque == 1) {echo 'checked=checked';}?>>Oui
+                        <input class="form-check-input" type="radio" name="pro_bloque" id="yes" value="1" <?php if ($row->pro_bloque == 1){echo 'checked=checked';}?>>Oui
                         </div>
                         <div class="form-check form-check-inline"> 
-                        <input class="form-check-input" type="radio" name="pro_bloque" id="no" value="<?php echo $row->pro_bloque ?>" <?php if ($row->pro_bloque == NULL) {echo 'checked=checked';} ?>>Non
+                        <input class="form-check-input" type="radio" name="pro_bloque" id="no" value="NULL" <?php if (($row->pro_bloque == NULL)||($row->pro_bloque == 0)) {echo "checked=checked";}?>>Non
                         </div>
                     </div>
                     <div class="mt-3">
